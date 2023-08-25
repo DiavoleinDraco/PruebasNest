@@ -28,18 +28,18 @@ export class LoginService {
 
   async sendConfirmationEmail(): Promise<void> {
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: 'Outlook',
       auth: {
-        user: 'ginzu200@gmail.com',
-        pass: 'gyezkrbrtpsaopng',
+        user: 'diavoleindraco@outlook.com',
+        pass: 'tbvlndufpkuittdj',
       },
     });
 
     const mailOptions = {
-      from: 'ginzu200@gmail.com',
-      to: 'ginzu200@gmail.com',
-      subject: 'Hola hermosa',
-      text: 'lo logre :)',
+      from: 'diavoleindraco@outlook.com',
+      to: 'pedro.paternina8@soy.sena.edu.co',
+      subject: 'apocosi',
+      text: 'textodeprueba',
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
