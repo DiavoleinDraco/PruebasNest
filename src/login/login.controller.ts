@@ -5,18 +5,19 @@ import { CreateUserDto } from 'src/dto/create-login.dto';
 @Controller('login')
 export class LoginController {
   constructor(private loginService: LoginService) {}
-  /* 
+  /*
    @Get()
   findAll() {
     return this.loginService.findAll();
   } 
   */
-
+  
+  
   @Get()
   findAll() {
     return this.loginService.sendConfirmationEmail();
   }
-
+ 
   @Get(':id')
   findOneById() {
     return 'Get one User';
