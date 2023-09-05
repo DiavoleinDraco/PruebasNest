@@ -1,8 +1,9 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose, { ObjectId } from "mongoose";
+import { NivelFormacion } from "src/nivel-formacion/schema/nivel-formacion.schema";
 
 @Schema({timestamps: true})
-export class Programa{
+export class Program{
     @Prop({
         required: true
     })
@@ -17,17 +18,9 @@ export class Programa{
     nombre: string
     @Prop({
         required: true,
-        type: mongoose.Schema.ObjectId
+        type: mongoose.Schema.Types.ObjectId
     })
-    nivel: ObjectId
-    @Prop({
-        required: true
-    })
-    fecha_i: string
-    @Prop({
-        required: true
-    })
-    fecha_fin: string
+    nivel: string
 }
 
-export const ProgramaModel = SchemaFactory.createForClass(Programa)
+export const ProgramModel = SchemaFactory.createForClass(Program)
