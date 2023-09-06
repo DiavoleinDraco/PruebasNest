@@ -28,10 +28,15 @@ export class FichaController {
   findAll() {
     return this.fichaService.findAll();
   }
-
+  
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.fichaService.findOne(+id);
+  async obtenerFichaConProgramaYNivel(@Param('id') fichaId: string) {
+    try {
+      const ficha = await this.fichaService.obtenerFichaConProgramaYNivel(fichaId);
+      return ficha;
+    } catch (error) {
+      throw new Error(`Error al obtener la ficha: ${error.message}`);
+    }
   }
 
   @Patch(':id')

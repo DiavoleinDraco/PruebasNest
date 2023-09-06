@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose from "mongoose";
+import { Program } from "src/programa/schema/programa.schema";
 
 
 @Schema({
@@ -14,7 +15,7 @@ export class Ficha{
     })
     codigo: string;
 
-    @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'Programa', unique: true, required: true, trim: true})
+    @Prop({type: mongoose.Schema.Types.ObjectId, ref: Program.name, unique: false, required: true, trim: true})
     programa: string
 
     @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'Jornada',required: false, trim: true})

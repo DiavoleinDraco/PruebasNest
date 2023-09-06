@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import mongoose, { ObjectId } from "mongoose";
-import { NivelFormacion } from "src/nivel-formacion/schema/nivel-formacion.schema";
+import { NivelFormacion, NivelFormacionSchema } from "src/nivel-formacion/schema/nivel-formacion.schema";
 
 @Schema({timestamps: true})
 export class Program{
@@ -18,7 +18,8 @@ export class Program{
     nombre: string
     @Prop({
         required: true,
-        type: mongoose.Schema.Types.ObjectId
+        unique: false,
+        type: mongoose.Schema.Types.ObjectId, ref: NivelFormacion.name
     })
     nivel: string
 }
