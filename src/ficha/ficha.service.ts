@@ -2,14 +2,14 @@ import { Injectable, UploadedFile } from '@nestjs/common';
 import { CreateFichaDto } from './dto/create-ficha.dto';
 import { UpdateFichaDto } from './dto/update-ficha.dto';
 import * as xlsx from 'xlsx'
-import { Ficha } from './schema/ficha.schema';
+import { Fichas } from './schema/ficha.schema';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { Program } from 'src/programa/schema/programa.schema';
 
 @Injectable()
 export class FichaService {
-  constructor(@InjectModel(Ficha.name) private fichaModel: Model<Ficha>,
+  constructor(@InjectModel(Fichas.name) private fichaModel: Model<Fichas>,
               @InjectModel(Program.name) private programaModel: Model<Program>){}
 
  async create(@UploadedFile() fileBuffer: Buffer) {

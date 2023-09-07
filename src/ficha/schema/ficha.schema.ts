@@ -7,7 +7,7 @@ import { Program } from "src/programa/schema/programa.schema";
     timestamps: true
 })
 
-export class Ficha{
+export class Fichas{
     @Prop({
         unique: true,
         required: true,
@@ -36,4 +36,4 @@ export class Ficha{
     fecha_fin?: string;
 }
 
-export const FichaSchema = SchemaFactory.createForClass(Ficha)
+export const FichaSchema = SchemaFactory.createForClass(Fichas)

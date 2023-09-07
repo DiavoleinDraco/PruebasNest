@@ -8,7 +8,7 @@ import { ProgramaModule } from './programa/programa.module';
 import { FichaModule } from './ficha/ficha.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/login') ,NivelFormacionModule,ProgramaModule,
+  imports: [MongooseModule.forRoot('mongodb+srv://pedroluispaterninaargumedo101:78bw4IjqSd9qlwyo@cluster0.aqbv2nq.mongodb.net/?retryWrites=true&w=majority') ,NivelFormacionModule,ProgramaModule,
     MulterModule.register({
       dest: './uploads', // Directorio donde se guardarán los archivos subidos
     }),
