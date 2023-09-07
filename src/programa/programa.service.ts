@@ -20,20 +20,24 @@ export class ProgramaService {
       const jsonData = xlsx.utils.sheet_to_json(sheet);
       
     for (const item of jsonData){
-      const nivelencontrado = idNivel.find(id => id.nombre === item["__EMPTY_6"])
-      if(item["__EMPTY_10"] != undefined && item["__EMPTY_4"] != undefined && item["__EMPTY_5"] != undefined && item["__EMPTY_6"] != undefined
-      && item["__EMPTY_10"] != "FICHA" && item["__EMPTY_4"] != "VERSION_PROGRAMA" && item["__EMPTY_5"] != "PROGRAMA"){
+    
+      if(item["__EMPTY_3"] != undefined && item["__EMPTY_4"] != undefined && item["__EMPTY_5"] != undefined && item["__EMPTY_6"] != undefined, item["__EMPTY_6"] != "NIVEL_FORMACION" 
+      && item["__EMPTY_3"] != "FICHA" && item["__EMPTY_4"] != "VERSION_PROGRAMA" && item["__EMPTY_5"] != "PROGRAMA") {
+        const nivelencontrado = idNivel.find(id => id.nombre === item["__EMPTY_6"])._id
+        console.log(nivelencontrado )
+        if(nivelencontrado != undefined){
         const nuevo = new this.programaModel({
           "codigo": item["__EMPTY_3"],
           "version": item["__EMPTY_4"],
           "nombre": item["__EMPTY_5"],
-          "nivel": nivelencontrado._id
+          "nivel": nivelencontrado
         })
         await nuevo.save()
-        
+      }
       }
 
       }
+      
     return(jsonData)
       } catch (error) {
         return `Error al procesar el archivo: ${error.message}`;
