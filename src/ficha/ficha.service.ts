@@ -42,7 +42,13 @@ export class FichaService {
     }
 
   findAll() {
-    return `This action returns all ficha`;
+    return this.fichaModel.find().populate([{
+      path: 'programa',
+      populate: {
+        path: 'nivel',
+        model: 'NivelFormacion'
+      },
+    }]);
   }
 
   async obtenerFichaConProgramaYNivel(fichaId: string) {
