@@ -6,6 +6,9 @@ import { MulterModule } from '@nestjs/platform-express';
 import { NivelFormacionModule } from './nivel-formacion/nivel-formacion.module';
 import { ProgramaModule } from './programa/programa.module';
 import { FichaModule } from './ficha/ficha.module';
+import { EpsModule } from './eps/eps.module';
+import { DominioSchema } from './dominio-sena/schema/dom.schema';
+import { DominioSenaModule } from './dominio-sena/dominio-sena.module';
 
 @Module({
   imports: [MongooseModule.forRoot('mongodb+srv://pedroluispaterninaargumedo101:78bw4IjqSd9qlwyo@cluster0.aqbv2nq.mongodb.net/?retryWrites=true&w=majority') ,NivelFormacionModule,ProgramaModule,
@@ -14,6 +17,7 @@ import { FichaModule } from './ficha/ficha.module';
     }),
     ProgramaModule,
     FichaModule,
+    EpsModule,DominioSenaModule
   ],
   controllers: [],
   providers: [],
